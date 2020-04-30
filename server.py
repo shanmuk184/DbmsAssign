@@ -136,5 +136,6 @@ Document.DocID, Document.Title, Document.PDate, Publisher.PubName from Document 
 Publisher.PublisherID;"""
 	cursor.execute(sq)
 	y = cursor.fetchall()
-	print(y)
+	# print(y)
 	return render_template('branch.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
+
