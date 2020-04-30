@@ -5,7 +5,7 @@ import datetime
 app = Flask(__name__)
 mysql = MySQL()
 
-app.config.update(MYSQL_DATABASE_USER='root',MYSQL_DATABASE_PASSWORD='password123', MYSQL_DATABASE_DB='PUBLIC_LIBRARY')
+app.config.update(MYSQL_DATABASE_USER='root',MYSQL_DATABASE_PASSWORD='password', MYSQL_DATABASE_DB='PUBLIC_LIBRARY')
 mysql.init_app(app)
 @app.route('/')
 def hello_world():
@@ -117,7 +117,7 @@ def document():
 		name = request.form['Name']
 		publisherId = request.form['publisherId']
 		publisherName = request.form['publisherName']
-		cursor.execute("INSERT INTO Document (PDate, PublisherID, Title) VALUES {};".format(('', publisherId, name)))
+		cursor.execute("INSERT INTO Document (PublisherID, Title) VALUES {};".format((publisherId, name)))
 		conn.commit()
 		return render_template('adminhome.html')
 
@@ -139,3 +139,14 @@ Publisher.PublisherID;"""
 	# print(y)
 	return render_template('branch.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
 
+@app.route('/checkstatus')
+def checkStatus():
+	conn = mysql.connect()
+	cursor = conn.cursor()
+	sq = """SELECT
+Document.DocID, Document.Title, Document.PDate, Publisher.PubName from Document INNER join Publisher on Document.PublisherID =
+Publisher.PublisherID;"""
+	cursor.execute(sq)
+	y = cursor.fetchall()
+	# print(y)
+	return render_template('checkout.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
