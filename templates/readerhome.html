@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reader Home</title>
+	<style type="text/css">
+		.container{
+			display: flex;
+			align-items: center;
+			 flex-direction: column;
+
+		}
+		.vertical-center{
+			width:100%;
+			text-align: center;
+			margin-bottom:20px;
+		}
+	</style>
+</head>
+<body>
+<div class ='container'>
+	<h1>Public Library</h1>
+	<h2>Welcome {{name}},</h2>
+	<h3>Reader options</h3>
+	<div class ='vertical-center'>
+	<button><a href='/readerlogin'>Search a document by ID, title, or publisher name</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/readerlogin'>Document checkout</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/adminlogin'>Document return</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/reader'>Document reserve</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/branch'>Compute fine for a document copy borrowed by a reader based on the current date</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/borrowers'>Print the list of documents reserved by a reader and their status</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/adminlogin'>Print the document id and document titles of documents published by a publisher</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/quit'>Quit</a></button>
+	</div>
+</div>
+</body>
+</html>

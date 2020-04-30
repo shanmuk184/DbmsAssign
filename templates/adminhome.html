@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Home</title>
+	<style type="text/css">
+		.container{
+			display: flex;
+			align-items: center;
+			 flex-direction: column;
+
+		}
+		.vertical-center{
+			width:100%;
+			text-align: center;
+			margin-bottom:20px;
+		}
+	</style>
+</head>
+<body>
+<div class ='container'>
+	<h1>Public Library</h1>
+	<h2>Welcome {{name}},</h2>
+	<h3>Admin options</h3>
+	<div class ='vertical-center'>
+	<button><a href='/readerlogin'>Add a document copy</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/adminlogin'>Search document copy and check its status</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/reader'>Add new reader</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/branch'>Print branch information (name and location)</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/borrowers'>Print top 10 most frequent borrowers in a branch and the number of books each has borrowed</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/borrowedbook'>Print top 10 most borrowed books in a branch</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/borrowedbook'> Print the 10 most popular books of the year</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/adminlogin'>Find the average fine paid per reader</a></button>
+	</div>
+	<div class ='vertical-center'>
+	<button><a href='/quit'>Quit</a></button>
+	</div>
+</div>
+</body>
+</html>

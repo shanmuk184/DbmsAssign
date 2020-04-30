@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Branch Page</title>
+	<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+	<div>
+		<table>
+			<tr>
+		{% for row in rows %}
+				<th>{{row}} </th>			
+		{% endfor %}	
+			</tr>
+		{% for branch in branches %}
+			<tr>
+				<td>{{branch[0]}} </td>
+				<td>{{branch[1]}} </td>
+			<tr>
+		{% endfor %}	
+		</table>		
+	</div>
+</body>
+</html>

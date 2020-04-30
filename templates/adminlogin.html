@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Login Page</title>
+	<style type="text/css">
+		.container{
+			display: flex;
+			align-items: center;
+			 flex-direction: column;
+
+		}
+		.vertical-center{
+			width:100%;
+			text-align: center;
+			
+		}
+		input{
+			margin-bottom:20px;
+		}
+	</style>
+</head>
+<body>
+<div class = 'container' >
+		<h1>Admin Login</h1>
+		<form class = 'container' action='/adminlogin' method='post'>
+			<input type="text" name="Id" placeholder ='UserID'>
+			<input type="Password" name="Password" placeholder='Password'>
+			<input type="submit" name="Submit">
+		</form>	
+	</div>
+</body>
+</html>
