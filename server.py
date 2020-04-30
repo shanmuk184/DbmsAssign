@@ -139,14 +139,11 @@ Publisher.PublisherID;"""
 	# print(y)
 	return render_template('branch.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
 
-@app.route('/checkstatus')
-def checkStatus():
+@app.route('/action')
+def checkout():
 	conn = mysql.connect()
 	cursor = conn.cursor()
-	sq = """SELECT
-Document.DocID, Document.Title, Document.PDate, Publisher.PubName from Document INNER join Publisher on Document.PublisherID =
-Publisher.PublisherID;"""
-	cursor.execute(sq)
-	y = cursor.fetchall()
+	# cursor.execute(sq)
+	# y = cursor.fetchall()
 	# print(y)
-	return render_template('checkout.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
+	return render_template('action.html')
