@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect
 from flaskext.mysql import MySQL
-
+from datetime import date
+import datetime
 app = Flask(__name__)
 mysql = MySQL()
 
-app.config.update(MYSQL_DATABASE_USER='root',MYSQL_DATABASE_PASSWORD='password123', MYSQL_DATABASE_DB='PUBLIC_LIBRARY')
+app.config.update(MYSQL_DATABASE_USER='root',MYSQL_DATABASE_PASSWORD='password', MYSQL_DATABASE_DB='PUBLIC_LIBRARY')
 mysql.init_app(app)
 @app.route('/')
 def hello_world():
@@ -105,6 +106,23 @@ def reader():
 		cursor.execute("INSERT INTO Reader (RType, RName, ReadAddress, PhoneNumber, Fine) VALUES {};".format(('Regular', name, address, phone, 0.0)))
 		conn.commit()
 		return render_template('adminhome.html')
+
+@app.route('/document', methods=['GET', 'POST'])
+def document():
+	if request.method == 'GET':
+		return render_template('document.html')
+	elif request.method == 'POST':
+		conn = mysql.connect()
+		cursor = conn.cursor()
+		# typ = request.form['type']
+		print(request.form)
+		name = request.form['Name']
+		publisherId = request.form['publisherId']
+		publisherName = request.form['publisherName']
+		cursor.execute("INSERT INTO Document (PDate, PublisherID, Title) VALUES {};".format(('', publisherId, name)))
+		conn.commit()
+		return render_template('adminhome.html')
+
 
 @app.route('/quit')
 def quit():

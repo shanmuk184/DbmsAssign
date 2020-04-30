@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Reader</title>
+	<style type="text/css">
+		.container{
+			display: flex;
+			align-items: center;
+			 flex-direction: column;
+
+		}
+		input{
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class = 'container' >
+		<h1>Add a Document</h1>
+		<form class = 'container' action='/document' method='post'>
+			<input type="text" name="Name" placeholder ='Name'>
+			<input type="text" name="publisherId" placeholder='Publisher Id'>
+			<input type="text" name="publisherName" placeholder ='Publisher Name'>
+			<input type="submit" name="Submit">
+		</form>	
+	</div>
+</body>
+</html>
