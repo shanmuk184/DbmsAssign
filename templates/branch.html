@@ -31,8 +31,9 @@ tr:nth-child(even) {
 			</tr>
 		{% for branch in branches %}
 			<tr>
-				<td>{{branch[0]}} </td>
-				<td>{{branch[1]}} </td>
+				{% for i in branch %}
+					<td>{{i}} </td>
+				{% endfor %}
 			<tr>
 		{% endfor %}	
 		</table>		

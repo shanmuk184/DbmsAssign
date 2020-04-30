@@ -28,8 +28,6 @@ def reader_login():
 			print(str(e))
 			return render_template('readerlogin.html')
 			
-	return 'came'
-
 
 @app.route('/adminlogin', methods=['GET', 'POST'])
 def admin_login():
@@ -128,3 +126,15 @@ def document():
 def quit():
 	return redirect('/')
 
+
+@app.route('/checkstatus')
+def checkStatus():
+	conn = mysql.connect()
+	cursor = conn.cursor()
+	sq = """SELECT
+Document.DocID, Document.Title, Document.PDate, Publisher.PubName from Document INNER join Publisher on Document.PublisherID =
+Publisher.PublisherID;"""
+	cursor.execute(sq)
+	y = cursor.fetchall()
+	print(y)
+	return render_template('branch.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
