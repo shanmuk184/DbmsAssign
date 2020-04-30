@@ -4,7 +4,7 @@ from flaskext.mysql import MySQL
 app = Flask(__name__)
 mysql = MySQL()
 
-app.config.update(MYSQL_DATABASE_USER='root',MYSQL_DATABASE_PASSWORD='password', MYSQL_DATABASE_DB='PUBLIC_LIBRARY')
+app.config.update(MYSQL_DATABASE_USER='root',MYSQL_DATABASE_PASSWORD='password123', MYSQL_DATABASE_DB='PUBLIC_LIBRARY')
 mysql.init_app(app)
 @app.route('/')
 def hello_world():
