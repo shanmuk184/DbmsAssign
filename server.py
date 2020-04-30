@@ -140,10 +140,20 @@ Publisher.PublisherID;"""
 	return render_template('branch.html', branches=y, rows=['Document Id', 'Title', 'Published Date', 'Publisher Name'])
 
 @app.route('/action')
-def checkout():
+def action():
 	conn = mysql.connect()
 	cursor = conn.cursor()
 	# cursor.execute(sq)
 	# y = cursor.fetchall()
 	# print(y)
 	return render_template('action.html')
+
+
+@app.route('/success', methods=['GET', 'POST'])
+def success():
+	conn = mysql.connect()
+	cursor = conn.cursor()
+	# cursor.execute(sq)
+	# y = cursor.fetchall()
+	# print(y)
+	return render_template('success.html')
